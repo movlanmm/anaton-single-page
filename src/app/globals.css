@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+}
+
+li {
+    cursor: pointer;
+}
+
+.bg-text {
+    background-image: url('/images/text-bg.jpeg');
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-position: center
+}
+
+.text-gradient {
+    background: linear-gradient(red, blue);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.btn {
+    position: relative;
+    overflow: hidden;
+    transition: 1s all ease;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    height: 0;
+    width: 100%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background-color: #10393b;
+    transition: all 0.6s ease;
+}
+
+.btn:hover::after {
+    height: 500%;
+}
+
+.btn:hover {
+    background-color: transparent;
+}
