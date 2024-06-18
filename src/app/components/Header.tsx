@@ -9,11 +9,15 @@ import MobileMenu from './MobileMenu'
 
 export default function Header() {
     const [open, setOpen] = useState<boolean>(false)
-    const [scroll, setscroll] = useState<number>(0)
+    const [scroll, setscroll] = useState<boolean>(false)
     const { scrollY } = useScroll()
 
     useMotionValueEvent(scrollY, "change", (latest) => {
-        setscroll(latest)
+        if (latest > 150) {
+            setscroll(true)
+        } else {
+            setscroll(false)
+        }
     })
 
     const variants = {
@@ -40,7 +44,7 @@ export default function Header() {
 
     return (
         <>
-            <motion.header variants={variants} animate='visible' initial='hidden' className={`lg:fixed w-full z-10  ${scroll > 150 && 'lg:bg-white transition-all shadow-md duration-500'}`}>
+            <motion.header variants={variants} animate='visible' initial='hidden' className={`lg:fixed w-full z-10  ${scroll && 'lg:bg-white transition-all shadow-md duration-500'}`}>
                 <div className='container mx-auto px-5 sm:px-0 flex  sm:justify-between items-center relative bg-transparent h-20 py-14'>
                     <div className="modile-menu lg:hidden" onClick={() => { setOpen(true) }}>
                         <RxHamburgerMenu fontSize={30} />
@@ -49,7 +53,7 @@ export default function Header() {
                         <Image src='/images/logo-blue.png' alt='Logo' width={150} height={60} className='w-1/2 sm:w-full h-16 object-scale-down' />
                     </div>
                     <div className='hidden lg:block'>
-                        {scroll > 150 ? (
+                        {scroll ? (
                             <Image src='/images/logo-blue.png' alt='Logo' width={160} height={60} className='w-full h-16' />
                         ) : (<Image src='/images/logo-light.png' alt='Logo' width={160} height={60} className='w-full h-16' />
 
@@ -57,7 +61,7 @@ export default function Header() {
 
                     </div>
                     <nav className='hidden lg:block'>
-                        <ul className={`text-sm lg:text-base font-medium flex justify-between items-center gap-5 ${scroll > 150 ? 'text-black' : 'text-white'}`}>
+                        <ul className={`text-sm lg:text-base font-medium flex justify-between items-center gap-5 ${scroll ? 'text-black' : 'text-white'}`}>
                             <motion.li variants={variants} className='hover:text-orange-500'>
                                 <Link href={'/#banner'}>Home</Link>
                             </motion.li>
@@ -78,7 +82,7 @@ export default function Header() {
                             </motion.li>
                         </ul>
                     </nav>
-                    <button className={`btn border hidden sm:block py-3 px-10 rounded-lg text-base bg-blue-700 font-medium  text-white ${scroll > 150 ? 'lg:bg-blue-700' : 'lg:bg-transparent'}`}>
+                    <button className={`btn border hidden sm:block py-3 px-10 rounded-lg text-base bg-blue-700 font-medium  text-white ${scroll ? 'lg:bg-blue-700' : 'lg:bg-transparent'}`}>
                         Get Consultant
                     </button>
                 </div>
