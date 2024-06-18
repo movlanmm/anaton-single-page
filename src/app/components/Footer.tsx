@@ -14,9 +14,9 @@ export default function Footer() {
                     <Image src={'/images/logo-blue.png'} alt='Logo' width={200} height={200} />
                     <p className='text-[#666666]'>Join our subscribers list to get the instant
                         latest news and special offers.</p>
-                    <div className='flex gap-3 flex-wrap'>
-                        <input type="email" placeholder='Your Email' className='px-5 py-4 shadow-md rounded-lg outline-none' />
-                        <button className='px-5 py-4 bg-blue-600 rounded-lg text-white '>Subscribe</button>
+                    <div className='flex gap-3 flex-wrap md:flex-nowrap'>
+                        <input type="email" placeholder='Your Email' className='px-5 py-4 shadow-md w-full md:w-fit rounded-lg outline-none' />
+                        <button className='px-5 py-4 bg-blue-600 rounded-lg text-white  w-full md:w-fit'>Subscribe</button>
                     </div>
                     <p className='text-sm text-[#666666]'>Anaton WordPres Theme By <Link href='#' className='text-blue-600 font-bold'>WordPressRiver</Link></p>
                     <div className="socials flex gap-4">

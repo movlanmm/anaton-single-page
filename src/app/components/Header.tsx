@@ -78,7 +78,7 @@ export default function Header() {
                             </motion.li>
                         </ul>
                     </nav>
-                    <button className={`btn border hidden sm:block py-3 px-10 rounded-lg text-base font-medium  text-white ${scroll > 150 ? 'lg:bg-blue-700' : 'lg:bg-transparent'}`}>
+                    <button className={`btn border hidden sm:block py-3 px-10 rounded-lg text-base bg-blue-700 font-medium  text-white ${scroll > 150 ? 'lg:bg-blue-700' : 'lg:bg-transparent'}`}>
                         Get Consultant
                     </button>
                 </div>

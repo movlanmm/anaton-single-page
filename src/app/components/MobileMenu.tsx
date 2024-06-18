@@ -19,7 +19,7 @@ const variants = {
             type: 'spring',
             staggerChildren: 0.1,
             delayChildren: 0.1,
-            stiffness: 100
+            stiffness: 120,
         }
     }
     // exit: {
@@ -49,8 +49,6 @@ export default function MobileMenu({ open, setOpen }: { open: boolean, setOpen: 
     if (open) {
         window.addEventListener('mousedown', closeLoginForm)
     }
-
-
 
 
     return (
